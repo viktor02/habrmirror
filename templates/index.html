@@ -1,16 +1,35 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <title>HabrMirror</title>
 </head>
-
 <body>
-    <p>Добро пожаловать в бекап Хабра! Перейти на статью можно по адресу <a href="/post/1">post/1</a></p>
-</body>
+<div class="container">
+    <div class="mt-3">
+        <div class="pr-5 text-center">
+            <h1 class="display-3 ">HabrMirror</h1>
+            <p class="lead">Зеркало хабра</p>
+        </div>
+        <div class="input-group mb-3">
+            
+          <input type="text" class="form-control" placeholder="Paste url, ex: https://habr.com/post/1" id="searchInput">
+          <div class="input-group-append">
 
+            <button class="btn btn-outline-secondary" type="submit" id="search">Search</button>
+          </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.5/lib/darkmode-js.min.js"></script>
+<script>
+    new Darkmode().showWidget();
+</script>
+</body>
 </html>

@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>HabrMirror</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/post.css') }}">
+
+    <title>{{ post[3] }}</title>
 </head>
 
 <body>
@@ -42,7 +43,7 @@
             <div id="comments">
                 <h2>Комментарии</h2>
                 {% for comment in comments %}
-                    <div class="comment">
+                    <div id="comment" class="shadow-sm p-3 mb-5 bg-light rounded">
                         <div class="comment-header">
                             <small>#{{comment[0]}}</small>
                             <strong>{{ comment[8] }}</strong>
@@ -62,6 +63,11 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/21423304ad.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.5/lib/darkmode-js.min.js"></script>
+    <script>
+        new Darkmode().showWidget();
+    </script>
+
 
     <!--  Пара костылей  -->
     <script>
@@ -82,10 +88,11 @@
             e.preventDefault();
             $(this).toggleClass('active');
             $(this).parent().find('.spoiler_text').first().slideToggle(300);
-        })
+        });
 
         // Цитаты становятся похожи на цитаты
         $("blockquote:nth-child(1n)").addClass("blockquote");
+
     </script>
 </body>
 
