@@ -1,85 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
-
-* {
-	margin: 0;
-}
-
-body{
-	background-color: #e5e8ec;
-}
-
-.container{
-	padding: 2%;
-	margin-left: 10%;
-	margin-right: 10%;
-	font-family: 'Roboto';
-	font-size: 1.2em;
-	background-color: #fff;
-
-	-webkit-box-shadow: 0px 0px 4px 0px #000000;
-	box-shadow: 0px 0px 4px 0px #000000;
-}
-
 blockquote{
 	padding: 15px;
 	background-color: lightyellow;
 }
 
-.comment{
-	padding: 10px;
-	margin-top: 15px;
-	margin-left: 12%;
-	margin-right: 12%;
-	font-family: 'Roboto';
-	font-size: 1.2em;
-	background-color: #fff;
-
-	-webkit-box-shadow: 0px 0px 4px 0px #000000;
-	box-shadow: 0px 0px 4px 0px #000000;
-}
-
-.author{
-	color: #777;
-	font-size: 0.9em;
-}
-
-.header{
-	margin-top: 10px;
-	padding-top: 30px;
-	padding-right: 10px;
-	padding-bottom: 15px;
-}
-
-.spoiler_title{
-    color: #0b70db;
-	text-decoration: none;
-	padding-left: 15px;
-}
-
-.spoiler_title{
-	color: #0b70db;
-	text-decoration: none;
-	padding-left: 15px;
-	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAANUlEQVQoU2PkLrj9n4EAYAQp+jpBlRGXOpA8hiJ0TaQrwuY2kDNINwnmcKLchO5LuHWEwgkAlO5FBwhFaI8AAAAASUVORK5CYII=) no-repeat 0 50%;
-}
-.spoiler_title.active{
-	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAKklEQVQoU2PkLrj9n4EAYAQp+jpBlRGXOpA8DRRhcxvIGTSyjqDvCIUTAEcINQcERZkIAAAAAElFTkSuQmCC);
-}
-.spoiler_title>span{
-	border-bottom: 1px dashed #0b70db;
-	padding:0 3px;
-}
-.spoiler_title:hover>span{
-	border-bottom-style: solid;
-}
-.spoiler_text{
-	display: none;
-}
-.tutorial{
-	display: inline-block;
-	border: 1px solid greenyellow ;
-}
 /* Код */
 pre {
 	background: #fbfdff;
@@ -99,4 +22,15 @@ pre {
 	word-break: normal;
 	word-spacing: normal;
 	word-wrap: normal;
+}
+
+
+.spoiler_title{
+    color: dodgerblue;
+	text-decoration: none;
+	padding-left: 15px;
+}
+
+.spoiler_text{
+	display: none;
 }

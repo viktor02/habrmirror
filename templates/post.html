@@ -5,22 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>HabrMirror</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/post.css') }}">
-    <script src="{{ url_for('static', filename='js/post.css') }}"> </script>
-    <script src="https://kit.fontawesome.com/21423304ad.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="container">
             <div class="header">
-                <h1>{{ post[3] }}</h1>
+                <h1 class="display-4">{{ post[3] }}</h1>
                 <br>
-                <p class="lead">
+                <p class="">
                     <strong class="author">{{ date }}</strong> от <strong class="author"> {{ post[2] }}</strong>
                 </p>
-                <br>
+
                 {% if post[9] == 1 %}
-                    <p class="tutorial">Tutorial</p> <br>
+                    <mark>Tutorial</mark> <br>
                 {% endif %}
 
                 <i class="fas fa-comments"></i> {{ post[6] }} |
@@ -40,38 +39,56 @@
                 <br>
                 <br>
             </div>
-    </div>
-    <div id="comments">
-        {% for comment in comments %}
-            <div class="comment">
-                <div class="comment-header">
-                    <strong>{{ comment[8] }}</strong>
-                    <sup>{{comment[4]}} | <i class="fas fa-arrows-alt-v"></i> {{ comment[5] }}</sup>
-
-                </div>
-                {{comment[6]|safe}}
-                <br>
+            <div id="comments">
+                <h2>Комментарии</h2>
+                {% for comment in comments %}
+                    <div class="comment">
+                        <div class="comment-header">
+                            <small>#{{comment[0]}}</small>
+                            <strong>{{ comment[8] }}</strong>
+                            <small>{{comment[4]}} | <i class="fas fa-arrows-alt-v"></i> {{ comment[5] }}</small>
+                        </div>
+                        {% if comment[1] != 0 %}
+                            <small><mark>В ответ #{{ comment[1] }}</mark></small>
+                            {{comment[6]|safe}}
+                        {% else %}
+                            {{comment[6]|safe}}
+                        {% endif %}
+                        <br>
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/21423304ad.js" crossorigin="anonymous"></script>
+
+    <!--  Пара костылей  -->
     <script>
+        // Загрузка изображений
         (async () => {
             for (let node of document.getElementsByTagName('img')) {
                 await new Promise(res => {
-                    node.src = node.dataset.src;
-                    node.onload = () => res();
+                    if(node.dataset.src !== undefined){
+                        node.src = node.dataset.src;
+                        node.onload = () => res();
+                    }
                 })
             }
         })();
 
+        // Работа спойлеров
         $(document).on('click', '.spoiler_title', function (e) {
             e.preventDefault();
             $(this).toggleClass('active');
             $(this).parent().find('.spoiler_text').first().slideToggle(300);
         })
-    </script>
 
+        // Цитаты становятся похожи на цитаты
+        $("blockquote:nth-child(1n)").addClass("blockquote");
+
+        $(".spoiler_title:nth-child(1n)").text();
+    </script>
 </body>
 
 </html>

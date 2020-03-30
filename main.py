@@ -30,9 +30,12 @@ def show_post(post_id):
     res = cur.execute("SELECT * FROM articles WHERE id = :id", {"id": post_id} )
     article = res.fetchone()
 
+    if article == None:
+        return render_template("404.html")
+
     res = cur.execute("SELECT * FROM comments WHERE article = :id", {"id": post_id} )
     comments = res.fetchall()
-    #
+
     date = datetime.strptime(article[1], "%Y-%m-%dT%H:%M:%S%z")
     date = datetime.strftime(date, '%d-%m-%Y %H:%M')
 
