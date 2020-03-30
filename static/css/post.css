@@ -1,8 +1,11 @@
 blockquote{
 	padding: 15px;
 	background-color: lightyellow;
+	border-left:thick solid #ff7559;
 }
-
+img{
+	width: 100%; /* Ширина в процентах */
+}
 /* Код */
 pre {
 	background: #fbfdff;
