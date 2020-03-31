@@ -16,14 +16,16 @@
             <h1 class="display-3 ">HabrMirror</h1>
             <p class="lead">Зеркало хабра</p>
         </div>
-        <div class="input-group mb-3">
-            
-          <input type="text" class="form-control" placeholder="Paste url, ex: https://habr.com/post/1" id="searchInput">
-          <div class="input-group-append">
-
-            <button class="btn btn-outline-secondary" type="submit" id="search">Search</button>
-          </div>
-        </div>
+        <form method="POST">
+            <div class="input-group mb-3">
+                <input type="url" class="form-control" placeholder="https://habr.com/post/1" id="searchInput"
+                       name="url">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit" id="search">Перейти</button>
+                </div>
+            </div>
+        </form>
+        <p>Промежуток доступных статей = {{ counter[0] }}..{{ counter [1] }}</p>
     </div>
 </div>
 

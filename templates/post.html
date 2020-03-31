@@ -43,14 +43,14 @@
             <div id="comments">
                 <h2>Комментарии</h2>
                 {% for comment in comments %}
-                    <div id="comment" class="shadow-sm p-3 mb-5 bg-light rounded">
+                    <div id="{{ comment[0] }}" class="shadow-sm p-3 mb-5 bg-light rounded">
                         <div class="comment-header">
                             <small>#{{comment[0]}}</small>
                             <strong>{{ comment[8] }}</strong>
                             <small>{{comment[4]}} | <i class="fas fa-arrows-alt-v"></i> {{ comment[5] }}</small>
                         </div>
                         {% if comment[1] != 0 %}
-                            <small><mark>В ответ #{{ comment[1] }}</mark></small>
+                            <small><a href="#{{comment[1]}}"><mark>В ответ #{{ comment[1] }}</mark></a></small>
                             {{comment[6]|safe}}
                         {% else %}
                             {{comment[6]|safe}}
