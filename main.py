@@ -18,14 +18,14 @@ def get_db():
 
 
 @app.route("/")
-def hello():
+def index():
     cur = get_db().cursor()
     res = cur.execute("SELECT min(id), max(id) FROM articles")
     counter = res.fetchone()
     return render_template("index.html", counter = counter)
 
 @app.route('/', methods=['POST'])
-def my_form_post():
+def index_post():
     text = request.form['url']
     id = ''.join(x for x in text if x.isdigit())
     if id != '':
