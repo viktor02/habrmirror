@@ -75,13 +75,15 @@
         (async () => {
             for (let node of document.getElementsByTagName('img')) {
                 await new Promise(res => {
-                    if(node.dataset.src !== undefined){
+                    if (node.dataset.src !== undefined){
                         node.src = node.dataset.src;
                         node.onload = () => res();
                     }
+
                 })
             }
         })();
+
 
         // Работа спойлеров
         $(document).on('click', '.spoiler_title', function (e) {

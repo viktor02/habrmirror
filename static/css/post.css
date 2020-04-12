@@ -27,6 +27,19 @@ pre {
 	word-wrap: normal;
 }
 
+@keyframes hide{
+	0%{
+		-webkit-box-shadow: 0px 10px 15px -2px #aaa;
+		-moz-box-shadow: 0px 10px 15px -2px #aaa;
+		box-shadow: 0px 10px 15px -2px #aaa;
+	}
+	100%{
+		box-shadow: none;
+	}
+}
+:target{
+	animation: hide linear 0.5s;
+}
 
 .spoiler_title{
     color: dodgerblue;
