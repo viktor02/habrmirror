@@ -1,5 +1,6 @@
 from flask import Flask, g, render_template, request, redirect, url_for
 import sqlite3
+import dateutil.parser
 from datetime import datetime
 
 app = Flask(__name__)
@@ -35,7 +36,6 @@ def index_post():
 
 @app.route('/post/<int:post_id>/')
 def show_post(post_id):
-    post_id = str(post_id)
     cur = get_db().cursor()
     res = cur.execute("SELECT * FROM articles WHERE id = :id", {"id": post_id} )
     article = res.fetchone()
@@ -46,12 +46,9 @@ def show_post(post_id):
     res = cur.execute("SELECT * FROM comments WHERE article = :id", {"id": post_id} )
     comments = res.fetchall()
 
-    # Грязный хак с датой, превращает таймзону даты в формат, которые понимает модуль date; из +03:00 в +0300
-    date = article[1]
-    date = date[0:-4] + date[-4:].replace(':', '')
+    date = dateutil.parser.parse(article[1])
 
-    date = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S%z")
-    date = datetime.strftime(date, '%d-%m-%Y %H:%M')
+    date = datetime.strftime(date, "%d.%m.%Y %H:%M")
 
 
     return render_template("post.html", post=article, date=date, comments=comments)
