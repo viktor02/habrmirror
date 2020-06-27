@@ -52,6 +52,3 @@ def show_post(post_id):
 
 
     return render_template("post.html", post=article, date=date, comments=comments)
-
-if __name__ == "__main__":
-    app.run(host="127.0.0.1", port="80", debug=True)
