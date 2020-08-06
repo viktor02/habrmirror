@@ -1,4 +1,6 @@
 # habrmirror
+![](images/hello.png)
+![](images/hello2.png)
  Еще одно зеркало habr.com
  
 ### База данных
